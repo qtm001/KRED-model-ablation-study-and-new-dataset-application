@@ -2,6 +2,8 @@
 
 This repository is the implementation of [KRED: Knowledge-Aware Document Representation for News Recommendations](https://arxiv.org/abs/1910.11494)
 
+A sample of how the code works can be found in the Jupyter Notebook 'KRED_full_pipeline.ipynb' 
+
 ## Model description
 
 ![](./framework.PNG)
