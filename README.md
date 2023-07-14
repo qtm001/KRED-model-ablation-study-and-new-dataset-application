@@ -12,12 +12,12 @@ KRED is a knowledge enhanced framework which enhance a document embedding with k
 
 We use [MIND dataset](https://msnews.github.io) in this repo, due to MIND dataset doesn't contain location information, so in this experiments we do not use the local news detection task.
 
-##  Running the code
+###  Running the code
 ```
 $ python main.py  (this will run KRED for user2item single task training set by default parameters)
 ```
 
-we also offer a quick example in this notebook: kred_example.ipynb
+we also offer an example of our extensions in this notebook: KRED_full_pipeline.ipynb
 
 
 ## Environment
@@ -27,3 +27,11 @@ The code has been tested running under Python 3.6.10, with the following package
 - scikit-learn==0.23.2
 - scipy==1.5.2
 - torch==1.4.0
+
+## Extensions
+In this project, we have applied 2 extensions: Ablation study and New dataset application - Amazon Books Recommendation.
+### Ablation study
+We train and test the model by removing one of the layers and with multiple tasks: User to Item recommendation, Item to Item recommendation, and Article Category Classification.
+
+### Amazon Books Recommendation
+We build a new knowledge graph with the dataset: [Amazon Books](https://www.kaggle.com/datasets/mohamedbakhet/amazon-books-reviews?select=Books_rating.csv), and train it on our model.
