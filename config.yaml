@@ -1,0 +1,61 @@
+name: "KRED"
+n_gpu: 1
+data_loader:
+    batch_size: 64 # original 64
+    shuffle: true
+    num_workers: 2 # original 1
+
+data:
+  train_news : "./data/train/news.tsv"
+  train_behavior : "./data/train/behaviors.tsv"
+  valid_news : "./data/valid/news.tsv"
+  valid_behavior : "./data/valid/behaviors.tsv"
+  knowledge_graph : "./data/kg/wikidata-graph/triple2id.txt"
+  entity_embedding : "./data/kg/wikidata-graph/entity2vecd100.vec"
+  relation_embedding : "./data/kg/wikidata-graph/relation2vecd100.vec"
+  entity_index : "./data/kg/wikidata-graph/entity2id.txt"
+  relation_index : "./data/kg/wikidata-graph/relation2id.txt"
+
+books:
+  train_books : "./data/Amazon_Books/amazon_books.csv"
+  train_behavior : "./data/Amazon_Books/behaviors_train_books.tsv"
+  valid_books : "./data/Amazon_Books/amazon_books.csv"
+  valid_behavior : "./data/Amazon_Books/behaviors_valid_books.tsv"
+  knowledge_graph : "./data/Amazon_Books/triple2id_books.txt"
+  entity_embedding : "./data/Amazon_Books/entity2vecd100_books.vec"
+  wikidata_ids: "./data/Amazon_Books/wikidata_ids.txt"
+  relation_embedding : "./data/Amazon_Books/relationship2vecd100_books.vec"
+  entity_index : "./data/Amazon_Books/entity2id_books.txt"
+  relation_index : "./data/Amazon_Books/relationship2id_books.txt"
+
+model:
+  document_embedding_dim: 768
+  embedding_dim: 100
+  news_entity_num: 20
+  entity_neighbor_num: 20
+  entity_embedding_dim: 100
+  layer_dim: 128
+  user_his_num: 20
+  kgat: True
+  context: True
+  distillation: True
+
+
+trainer:
+  training_type: "single_task" # single_task or multi-task
+  data_type: "book" # news or book
+  task: "user2item" # task should be within: user2item, item2item, vert_classify, pop_predict
+  epochs: 5 # originally 100
+  smooth_lamda: 10
+  train_neg_num: 4
+  save_dir: "./out/saved/"
+  save_period: 3 # originally 1
+  early_stop: 2
+  monitor: "val_auc"
+  verbosity: 1
+
+optimizer:
+  type: "Adam"
+  lr: 0.00002
+  weight_decay: 0.000001
+  amsgrad: true
