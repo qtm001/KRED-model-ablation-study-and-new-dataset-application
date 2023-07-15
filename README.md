@@ -8,7 +8,7 @@ A sample of how the code works can be found in the Jupyter Notebook 'KRED_full_p
 
 ![](./framework.PNG)
 
-KRED is a knowledge enhanced framework which enhance a document embedding with knowledge information for multiple news recommendation tasks. The framework mainly contains two part: representation enhancement part(left) and multi-task training part(right).
+Knowledge Aware Representation Enhancement Model (KRED) is a knowledge enhanced framework which enhance a document embedding with knowledge information for multiple news recommendation tasks. The framework mainly contains two part: representation enhancement part(left) and multi-task training part(right).
 
 ##  Data description:
 
